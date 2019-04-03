@@ -1,22 +1,22 @@
 
 import { CARD_ADD, CARD_DEL } from '../actions/card'
 
-export default function card (state = null, action) {
+export default function card(state = null, action) {
   switch (action.type) {
-    case CARD_ADD :
+    case CARD_ADD:
       return {
-          ...state,
-          [action.card.id]: {
-              ...action.card
-          }
+        ...state,
+        [action.card.id]: {
+          ...action.card
+        }
       }
-    case CARD_DEL :
-        const res = state
-        delete res[action.id]
+    case CARD_DEL:
+      const res = state
+      delete res[action.id]
       return {
-          ...res
+        ...res
       }
-    default :
+    default:
       return state
   }
 }
