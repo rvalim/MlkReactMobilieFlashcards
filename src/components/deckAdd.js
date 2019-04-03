@@ -8,7 +8,7 @@ class DeckList extends Component {
             <View>
                 <Text>And the new Deck's title is...</Text>
                 <TextInput placeholder="Example: About Animals"></TextInput>
-                <Button>Create Deck</Button>
+                <Button title="Create Deck"/>
             </View>
         )
     }

@@ -14,13 +14,13 @@ class DeckList extends Component {
     render() {
         return (
             <View>
-                {decks.map(p => formatDeck(p))}
+                
             </View>
         )
     }
 }
 
-function mapStateToProps({ decks }) {
+function mapStateToProps({decks}) {
     return { decks }
 }
 

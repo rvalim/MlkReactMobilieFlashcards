@@ -1,9 +1,14 @@
 
-import { DECK_ADD, DECK_DEL } from '../actions/deck'
+import { DECK_ADD, DECK_DEL, DECK_LOAD } from '../actions/deck'
 import { CARD_ADD, CARD_DEL } from '../actions/card'
 
 export default function deck (state = null, action) {
   switch (action.type) {
+    case DECK_LOAD:
+      return {
+        ...state,
+        ...action.decks
+      }
     case DECK_ADD :
       return {
           ...state,
