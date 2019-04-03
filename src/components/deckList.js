@@ -4,24 +4,26 @@ import { StyleSheet, Text, View, Button } from 'react-native'
 
 class DeckList extends Component {
     formatDeck(deck) {
-        <View>
-            <Text>{deck.title}</Text>
-            <Text>{deck.cards.length}</Text>
-            <Button>View Cards</Button>
-        </View>
+        return (
+            <View key={deck.id}>
+                <Text>{deck.title}</Text>
+                <Text>{deck.cards.length}</Text>
+            </View>
+        )
     }
 
     render() {
+        const {decks} = this.props
         return (
             <View>
-                
+                {Object.keys(decks).map(p => this.formatDeck(decks[p]))}
             </View>
         )
     }
 }
 
 function mapStateToProps({decks}) {
-    return { decks }
+    return {decks}
 }
 
 export default connect(mapStateToProps)(DeckList)

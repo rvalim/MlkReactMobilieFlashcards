@@ -1,6 +1,6 @@
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import DeckList from './src/components/deckList'
-import DeckAdd from './src/components/deckAdd'
+import DeckList from './deckList'
+import DeckAdd from './deckAdd'
 
 const TabNavigator = createBottomTabNavigator({
     DeckList:{

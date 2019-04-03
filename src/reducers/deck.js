@@ -2,7 +2,7 @@
 import { DECK_ADD, DECK_DEL, DECK_LOAD } from '../actions/deck'
 import { CARD_ADD, CARD_DEL } from '../actions/card'
 
-export default function deck (state = null, action) {
+export default function deck (state = {}, action) {
   switch (action.type) {
     case DECK_LOAD:
       return {
@@ -10,10 +10,13 @@ export default function deck (state = null, action) {
         ...action.decks
       }
     case DECK_ADD :
+      const {deck} = action
+      const key = Object.keys(deck)[0]
+
       return {
           ...state,
-          [action.deck.id]: {
-              ...action.deck.action
+          [key]: {
+              ...deck[key]
           }
       }
     case DECK_DEL :

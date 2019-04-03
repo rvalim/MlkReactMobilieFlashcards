@@ -1,7 +1,7 @@
 
 import { CARD_ADD, CARD_DEL } from '../actions/card'
 
-export default function card(state = null, action) {
+export default function card(state = {}, action) {
   switch (action.type) {
     case CARD_ADD:
       return {
