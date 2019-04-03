@@ -3,6 +3,6 @@ import deck from '../reducers/deck'
 import card from '../reducers/card'
 
 export default combineReducers({
-    deck,
-    card
+    decks: deck,
+    cards: card
 })
