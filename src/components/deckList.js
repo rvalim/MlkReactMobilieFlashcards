@@ -5,7 +5,7 @@ import { Alert, StyleSheet, Text, View, Button, TouchableHighlight } from 'react
 class DeckList extends Component {
     handleTouch(id){
         const {navigation} = this.props
-        navigation.navigate('DeckDetail')
+        navigation.navigate('DeckDetail', {id})
     }
 
     formatDeck(deck) {
