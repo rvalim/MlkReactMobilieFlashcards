@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Alert, Text, View, Button, TextInput } from 'react-native'
 
-const DeckDetail = ({ deck }) => {
+const DeckDetail = ({ deck, navigation}) => {
     const handleAddCard = () => Alert.alert('not developed')
     const handleDelCard = () => Alert.alert('not developed')
-    const handleStartQuiz = () => Alert.alert('not developed')
+    const handleStartQuiz = () => navigation.navigate('Quiz', {id: deck.id})
 
     return (
         <View>

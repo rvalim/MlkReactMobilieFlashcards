@@ -2,6 +2,7 @@ import { createBottomTabNavigator, createStackNavigator, createAppContainer } fr
 import DeckList from './deckList'
 import DeckAdd from './deckAdd'
 import DeckDetail from './deckDetail'
+import Quiz from './quiz'
 
 const TabNavigator = createBottomTabNavigator({
   DeckList: {
@@ -28,6 +29,9 @@ const Stack = createStackNavigator({
     navigationOptions: {
       tabBarLabel: 'Details'
     }
+  },
+  Quiz: {
+    screen: Quiz,
   }
 })
 
