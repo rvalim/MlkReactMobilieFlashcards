@@ -4,21 +4,24 @@ import { Alert, Text, View, Button, TextInput } from 'react-native'
 
 const Quiz = ({ cards }) => {
     const formatCard = (card) => {
-        <View key={card.id}>
-            <Text>{card.title}</Text>
-        </View>
+        console.log(card)
+        return (
+            <View key={card.id}>
+                <Text>{card.question}</Text>
+            </View>
+        )
     }
 
     return <View>
-            {cards.length?
-            cards.map(p => formatCard(p)):
+        {cards ?
+            cards.map(p => formatCard(p)) :
             <Text>You can't answer quizes without cards</Text>}
-        </View>
+    </View>
 }
 
 function mapStateToProps({ decks, cards }, { navigation }) {
-    const {id} = navigation.state.params
-    
+    const { id } = navigation.state.params
+
     return {
         cards: decks[id].cards.map(p => cards[p])
     }
