@@ -25,12 +25,12 @@ export async function submitEntry(type, entry) {
     })  
 }
 
-export function removeEntry(key) {
-  return AsyncStorage.getItem(FLASH_CARDS_STORAGE)
-    .then((results) => {
-      const data = JSON.parse(results)
-      data[key] = undefined
-      delete data[key]
-      AsyncStorage.setItem(FLASH_CARDS_STORAGE, JSON.stringify(data))
-    })
+export async function removeEntry(key) {
+  try {
+    await AsyncStorage.removeItem(key);
+    return true;
+  }
+  catch(e) {
+    return false;
+  }
 }
