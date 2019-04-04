@@ -1,14 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux'
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import store from './src/store'
-import Tabs from './src/components/tabNavigator'
+import Navigator from './src/components/navControl'
 
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Tabs/>
+        <Navigator/>
       </Provider>
     );
   }
