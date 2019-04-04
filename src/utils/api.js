@@ -7,7 +7,7 @@ export function saveDeck(title) {
     let deck = formatDeck(title, 'verify')
     return db.submitEntry(DECK_TYPE, deck)
 }
-export function deleteDeck(key) {
+export function deleteEntry(key) {
     return db.removeEntry(key)
 }
 export function saveCard(deckId, question, answer) {
