@@ -14,8 +14,9 @@ class CardAdd extends Component {
 
     handleSubmit() {
         const { question, answer } = this.state
-        const {deckId, dispatch} = this.props
+        const {deckId, dispatch, navigation} = this.props
         dispatch(addCard(deckId, question, answer))
+        navigation.pop()
     }
 
     render() {
