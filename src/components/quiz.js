@@ -10,11 +10,10 @@ const Quiz = ({ cards }) => {
     }
 
     return <View>
-            {cards.length == 0?
-            <Text>You can't answer quizes without cards</Text> :
-            cards.map(p => formatCard(p))}
+            {cards.length?
+            cards.map(p => formatCard(p)):
+            <Text>You can't answer quizes without cards</Text>}
         </View>
-
 }
 
 function mapStateToProps({ decks, cards }, { navigation }) {

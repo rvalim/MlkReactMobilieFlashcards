@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {NavigationActions} from 'react-navigation'
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native'
 import { addDeck } from '../actions/deck'
 
@@ -12,10 +13,11 @@ class DeckAdd extends Component {
     }
 
     handlerNewDeck(){
-        const {dispatch} = this.props
+        const {dispatch, navigation} = this.props
         const {deckName} = this.state
         
         dispatch(addDeck(deckName))
+        navigation.navigate('DeckList')
     }
 
     render() {

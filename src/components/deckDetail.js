@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Alert, Text, View, Button, TextInput } from 'react-native'
+import { delDeck } from '../actions/deck'
 
-const DeckDetail = ({ deck, navigation}) => {
-    const handleAddCard = () => navigation.navigate('CardAdd', {id: deck.id})
-    const handleDelCard = () => Alert.alert('not developed')
-    const handleStartQuiz = () => navigation.navigate('Quiz', {id: deck.id})
+const DeckDetail = ({ id, deck, navigation, dispatch}) => {
+    const handleStartQuiz = () => navigation.navigate('Quiz', {id})
+    const handleAddCard = () => navigation.navigate('CardAdd', {id})
+    const handleDelCard = () => {
+        dispatch(delDeck(id))
+        navigation.pop()
+    }
 
-    return (
+    return deck?
         <View>
             <Text>{deck.id}</Text>
             <Text>{deck.title}</Text>
@@ -21,13 +25,14 @@ const DeckDetail = ({ deck, navigation}) => {
             <Button
                 title="Delete Deck"
                 onPress={() => handleDelCard()} />
-        </View>
-    )
+        </View>:
+        <Text>Unfounded deck {id}</Text>
+    
 }
 
 function mapStateToProps({decks}, {navigation}) {
     const {id} = navigation.state.params
-    return { deck: decks[id] }
+    return { id, deck: decks[id] }
 }
 
 export default connect(mapStateToProps)(DeckDetail)
