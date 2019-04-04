@@ -10,8 +10,19 @@ export function saveDeck(title) {
 export function deleteDeck(key) {
     return db.removeEntry(key)
 }
-export function saveCard(card) {
+export function saveCard(deckId, question, answer) {
+    let card = formatCard(deckId, question, answer, 'verify')
     return db.submitEntry(CARD_TYPE, card)
+}
+
+function formatCard (deckId, question, answer, author) {
+  return {
+    deckId,
+    timestamp: Date.now(),
+    author,
+    question,
+    answer,
+  }
 }
 
 function formatDeck (title, author) {

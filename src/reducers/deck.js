@@ -26,7 +26,9 @@ export default function deck (state = {}, action) {
             ...res
       }
     case CARD_ADD:
-      const {card} = action 
+      const cardKey = Object.keys(action.card)[0]
+      const card = action.card[cardKey] 
+      
       return {
             ...state,
             [card.deckId]: {

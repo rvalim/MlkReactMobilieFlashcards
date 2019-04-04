@@ -2,6 +2,7 @@ import { createBottomTabNavigator, createStackNavigator, createAppContainer } fr
 import DeckList from './deckList'
 import DeckAdd from './deckAdd'
 import DeckDetail from './deckDetail'
+import CardAdd from './cardAdd'
 import Quiz from './quiz'
 
 const TabNavigator = createBottomTabNavigator({
@@ -32,6 +33,9 @@ const Stack = createStackNavigator({
   },
   Quiz: {
     screen: Quiz,
+  }, 
+  CardAdd: {
+    screen: CardAdd,
   }
 })
 
