@@ -74,8 +74,8 @@ class Quiz extends Component {
 
         return (
             <View>
-                <Text>Questions marked as incorret: {counter['false']}</Text>
-                <Text>Questions marked as correct: {counter['true']}</Text>
+                <Text>Questions marked as incorret: {counter['false'] || 0}</Text>
+                <Text>Questions marked as correct: {counter['true'] || 0}</Text>
                 <Button
                     title="Restart Quiz"
                     onPress={() => this.reset()} />
