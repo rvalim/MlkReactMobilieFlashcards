@@ -2,6 +2,7 @@ import { saveCard } from '../utils/api'
 
 export const CARD_ADD = 'CARD_ADD'
 export const CARD_DEL = 'CARD_DEL'
+export const CARD_LOAD = 'CARD_LOAD'
 
 export function _addCard(card){
     return {
@@ -17,6 +18,13 @@ export function addCard(deckId, question, answer){
                 dispatch(_addCard(res))
             })
     } 
+}
+
+export function loadCards(cards){
+    return {
+        type: CARD_LOAD, 
+        cards
+    }
 }
 
 export function delCard(id){

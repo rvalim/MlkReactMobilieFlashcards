@@ -1,13 +1,14 @@
 import { getInitialData } from '../utils/api'
 import { loadDecks } from './deck'
-import { showLoading, hideLoading } from 'react-redux-loading'
+import { loadCards } from './card'
 
 export function handleInitialData () {
   return (dispatch) => {
-    dispatch(showLoading())
+    console.log('entrouuuuuuuuuuuuuuu')
     return getInitialData()
-      .then(({ decks }) => {//, questions }) => {
+      .then(({ decks, cards }) => {//, questions }) => {
         dispatch(loadDecks(decks))
+        dispatch(loadCards(cards))
       })
   }
 }
