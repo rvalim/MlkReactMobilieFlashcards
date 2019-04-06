@@ -15,6 +15,7 @@ It was made using VSCode and Android Studio to emulate a mobile phone, the andro
 ## Structure
 
 Bellow there is some comments about the application structure, some obvious things like _what action deck does? It triggers the actions for decks_, it was ignored and not described here ( =D ).  
+
     .
     ├── ...
     ├── src                   # Where the intelligence lives
