@@ -14,21 +14,21 @@ It was made using VSCode and Android Studio to emulate a mobile phone, the andro
 
 ## Structure
 
-Bellow there is some comments about the application structure, some obvious things like _what action deck does? It triggers the actions for decks_, it was ignored and not described here ( =D ).  
-.
-├── ...
-├── src                   # Where the intelligence lives
-|   ├── actions           # All the actions responsible to trigger the updates
-|   ├── components        # Customized components 
-|       └── navControl.js # Routes's implementation, responsible for loading all components
-|   ├── middleware        # Middlewares for the app, the logger stays in here
-|   ├── reducers          # Reducers responsible for updating the state
-|   ├── store.js          # Where the store lives
-|   └── utils             # Place to put shared files
-|       ├── _data.js      # The way I work with AsyncStorage, the structure is in here
-|       └── api.js        # A facede to work with_ _data.js_, so components can be more abstractive
-|── App.js                # Where I load initial data and _navControl.js_
-└── ...
+    Bellow there is some comments about the application structure, some obvious things like _what action deck does? It triggers the actions for decks_, it was ignored and not described here ( =D ).  
+    .
+    ├── ...
+    ├── src                   # Where the intelligence lives
+    |   ├── actions           # All the actions responsible to trigger the updates
+    |   ├── components        # Customized components 
+    |       └── navControl.js # Routes's implementation, responsible for loading all components
+    |   ├── middleware        # Middlewares for the app, the logger stays in here
+    |   ├── reducers          # Reducers responsible for updating the state
+    |   ├── store.js          # Where the store lives
+    |   └── utils             # Place to put shared files
+    |       ├── _data.js      # The way I work with AsyncStorage, the structure is in here
+    |       └── api.js        # A facede to work with_ _data.js_, so components can be more abstractive
+    |── App.js                # Where I load initial data and _navControl.js_
+    └── ...
 
 ## First steps
 
