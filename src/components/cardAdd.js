@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, KeyboardAvoidingView, Button, TextInput } from 'react-native'
+import { View, KeyboardAvoidingView, Button, TextInput, Alert } from 'react-native'
 import { addCard } from '../actions/deck'
 import * as styles from '../utils/style'
 

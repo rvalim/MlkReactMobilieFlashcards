@@ -1,10 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux'
-import { StyleSheet } from 'react-native';
 import store from './src/store'
 import Navigator from './src/components/navControl'
 import {handleInitialData} from './src/actions/shared'
-import {clearAll} from './src/utils/_data'
 
 export default class App extends React.Component {
   componentDidMount(){
@@ -19,12 +17,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
