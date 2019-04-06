@@ -87,7 +87,13 @@ class Quiz extends Component {
         )
     }
 
+    hasCards(){
+        return this.props.cards.length > 0
+    }
+
     pop() {
+        if (!this.hasCards()) return 
+
         const { cards } = this.props
         const { answeredId } = this.state
         const popedCard = cards.filter(p => answeredId.indexOf(p.id) === -1).pop()
@@ -100,7 +106,7 @@ class Quiz extends Component {
     render() {
         return (
             <View>
-                {this.props.cards ?
+                {this.hasCards() ?
                     this.formatCard(this.state.popedCard)
                     : <Text>You can't answer quizes without cards</Text>}
                 {this.showScore()}
