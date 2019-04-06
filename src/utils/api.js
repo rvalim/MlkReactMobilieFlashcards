@@ -13,9 +13,9 @@ export function getInitialData() {
   )
 }
 
-export function saveDeck(title) {
-  let deck = formatDeck(title, 'verify')
-  return db.submitEntry(deck)
+export function saveDeck(key, title) {
+  let deck = formatDeck(key, title, 'verify')
+  return db.updateEntry(key, deck)
 }
 
 export function getDecks() {
@@ -59,8 +59,9 @@ function formatCard(question, answer) {
   }
 }
 
-function formatDeck(title, author) {
+function formatDeck(key, title, author) {
   return {
+    id: key,
     timestamp: Date.now(),
     author,
     title,

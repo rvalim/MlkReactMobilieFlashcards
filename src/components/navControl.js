@@ -43,15 +43,17 @@ const TabNavigator = createBottomTabNavigator({
   DeckList: {
     screen: DeckList,
     navigationOptions: {
-      tabBarLabel: 'Deck list', 
-      transition: 'SlideFromBottom'
+      title: 'Deck list',
+      headerTitle: 'Deck list',
+      tabBarLabel: 'Deck list',
     }
   },
   DeckAdd: {
     screen: DeckAdd,
     navigationOptions: {
-      tabBarLabel: 'New Deck', 
-      transition: 'SlideFromBottom'
+      title: 'New Deck',
+      headerTitle: 'New Deck',
+      tabBarLabel: 'New Deck',
     }
   },
 })
@@ -64,14 +66,20 @@ const Stack = createStackNavigator({
   DeckDetail: {
     screen: DeckDetail,
     navigationOptions: {
-      tabBarLabel: 'Details'
+      title: 'Details'
     }
   },
   Quiz: {
     screen: Quiz,
+    navigationOptions: {
+      title: 'Quiz'
+    }
   },
   CardAdd: {
     screen: CardAdd,
+    navigationOptions: {
+      title: 'Add new Card'
+    }
   }
 }, {
     headerMode: "screen",

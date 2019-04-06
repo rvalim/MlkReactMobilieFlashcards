@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { Alert, StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native'
+import { Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import * as styles from '../utils/style'
 
 const DeckList = ({ decks, navigation }) => {
     const handleTouch = (id) => {
@@ -9,24 +10,26 @@ const DeckList = ({ decks, navigation }) => {
 
     const formatDeck = (deck) => {
         return (
-            <TouchableHighlight
+            <TouchableOpacity
                 key={deck.id}
-                onPress={() => handleTouch(deck.id)} >
+                onPress={() => handleTouch(deck.id)}
+                style={styles.css.row}>
                 <View>
-                    <Text>{deck.title}</Text>
-                    <Text>{deck.questions.length}</Text>
+                    <Text style={styles.css.titleList}>{deck.title}</Text>
+                    <Text>{deck.questions.length} cards</Text>
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
         )
     }
 
     const keys = Object.keys(decks)
 
-    return keys.length ?
-        <View>
-            {keys.map(p => formatDeck(decks[p]))}
-        </View>
-        : <Text>You have no decks yet!</Text>
+    return <ScrollView style={styles.css.container}>
+            {keys.length? keys.map(p => formatDeck(decks[p]))
+            :<View style={[{flex:1},styles.css.row]}> 
+                <Text style={styles.css.title}>You have no decks yet!</Text>
+            </View>}
+        </ScrollView>
 }
 
 function mapStateToProps({ decks }) {
@@ -34,3 +37,4 @@ function mapStateToProps({ decks }) {
 }
 
 export default connect(mapStateToProps)(DeckList)
+

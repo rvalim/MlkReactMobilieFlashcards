@@ -39,9 +39,9 @@ export function loadDecks(decks) {
     }
 }
 
-export function addDeck(deck) {
+export function addDeck(key, deck) {
     return (dispatch, getState) => {
-        return saveDeck(deck)
+        return saveDeck(key, deck)
             .then(res => {
                 dispatch(_addDeck(res))
             })

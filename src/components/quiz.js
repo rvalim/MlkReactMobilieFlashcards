@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Alert, Text, View, Button, TextInput } from 'react-native'
+import { Alert, Text, View, Button } from 'react-native'
+import * as styles from '../utils/style'
 
 const initialState = {
     answeredId: [],
@@ -48,10 +49,11 @@ class Quiz extends Component {
     formatCard(card) {
         if (!card) return
         return (
-            <View key={card.id}>
+            <View>
                 <Text>{this.getPaging()}</Text>
-                <Text>{card.question}</Text>
+                <Text style={styles.css.title}>{card.question}</Text>
                 <Button
+                    style={styles.btn}
                     title="Answer"
                     onPress={() => Alert.alert('Answer', card.answer)} />
                 <Button
@@ -105,11 +107,14 @@ class Quiz extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.css.container}>
+                <View style={[{flex:1},styles.css.row]}> 
                 {this.hasCards() ?
-                    this.formatCard(this.state.popedCard)
-                    : <Text>You can't answer quizes without cards</Text>}
+                    this.formatCard(this.state.popedCard): 
+                    <Text style={styles.css.noDataText}>You can't answer quizes without cards</Text>
+                }
                 {this.showScore()}
+                </View>
             </View>
         )
     }
