@@ -14,7 +14,7 @@ const DeckList = ({ decks, navigation }) => {
                 onPress={() => handleTouch(deck.id)} >
                 <View>
                     <Text>{deck.title}</Text>
-                    <Text>{deck.cards.length}</Text>
+                    <Text>{deck.questions.length}</Text>
                 </View>
             </TouchableHighlight>
         )

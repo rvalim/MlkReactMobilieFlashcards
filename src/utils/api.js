@@ -1,53 +1,69 @@
 import * as db from './_data'
+import { generateUID } from './helper'
 
-export const CARD_TYPE = 'CARD'
-export const DECK_TYPE = 'DECK'
-
-export function getInitialData(){
+export function getInitialData() {
   return Promise.all(
-    [getAll(DECK_TYPE), 
-    getAll(CARD_TYPE)]
+    [getDecks()]
   ).then(
-    ([decks, cards]) => {
+    ([decks]) => {
       return {
         decks,
-        cards,
       }
     }
   )
 }
 
 export function saveDeck(title) {
-    let deck = formatDeck(title, 'verify')
-    return db.submitEntry(DECK_TYPE, deck)
-}
-export function deleteEntry(key) {
-    return db.removeEntry(key)
-}
-export function saveCard(deckId, question, answer) {
-    let card = formatCard(deckId, question, answer, 'verify')
-    return db.submitEntry(CARD_TYPE, card)
+  let deck = formatDeck(title, 'verify')
+  return db.submitEntry(deck)
 }
 
-export function getAll(type){
-  return db.getAll(type)
+export function getDecks() {
+  return db.getAll()
 }
 
-function formatCard (deckId, question, answer, author) {
+export function getDeck(key) {
+  return db.getItem(key)
+}
+
+export function deleteDeck(key) {
+  return db.deleteEntry(key)
+}
+
+export function addCardToDeck(key, question, answer) {
+  const card = formatCard(question, answer, 'verify')
+  card.id = generateUID()
+  
+  return new Promise(
+    (resolve, reject) => {
+      getDeck(key).then(
+        (deck) => {
+          deck.questions = deck.questions.concat(card)
+
+          db.updateEntry(deck.id, deck)
+            .then(
+              resolve(card)
+            )
+            .catch(e => reject(e))
+        }
+      )
+    }
+  )
+}
+
+function formatCard(question, answer) {
   return {
-    deckId,
     timestamp: Date.now(),
-    author,
     question,
     answer,
   }
 }
 
-function formatDeck (title, author) {
+function formatDeck(title, author) {
   return {
     timestamp: Date.now(),
     author,
     title,
-    cards:[]
+    questions: []
   }
 }

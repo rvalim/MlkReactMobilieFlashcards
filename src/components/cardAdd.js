@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Alert, Text, View, Button, TextInput } from 'react-native'
-import {addCard} from '../actions/card'
+import {addCard} from '../actions/deck'
 
 class CardAdd extends Component {
     constructor(props) {

@@ -15,7 +15,7 @@ const DeckDetail = ({ id, deck, navigation, dispatch}) => {
         <View>
             <Text>{deck.id}</Text>
             <Text>{deck.title}</Text>
-            <Text>{deck.cards.length} cards</Text>
+            <Text>{deck.questions.length} cards</Text>
             <Button
                 title="Add Card"
                 onPress={() => handleAddCard()} />

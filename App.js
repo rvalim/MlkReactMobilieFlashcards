@@ -4,9 +4,11 @@ import { StyleSheet } from 'react-native';
 import store from './src/store'
 import Navigator from './src/components/navControl'
 import {handleInitialData} from './src/actions/shared'
+import {clearAll} from './src/utils/_data'
 
 export default class App extends React.Component {
   componentDidMount(){
+    //clearAll()
     store.dispatch(handleInitialData())
   }
   render() {
