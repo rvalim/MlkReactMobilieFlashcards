@@ -41,7 +41,6 @@ export const css = StyleSheet.create({
      },  
     button: {
         marginTop: 15,
-        backgroundColor: pink,
         borderRadius: 16,
     },
     title: {
