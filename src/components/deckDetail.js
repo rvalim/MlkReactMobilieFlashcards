@@ -16,18 +16,21 @@ const DeckDetail = ({ id, deck, navigation, dispatch }) => {
         <KeyboardAvoidingView
             style={styles.css.container}
             behavior="padding" enabled>
-            <View style={[{flex:1},styles.css.row]}>
+            <View style={[{ flex: 1 }, styles.css.row]}>
                 <Text style={styles.css.title}>{deck.title}</Text>
                 <Text>{deck.questions.length} cards</Text>
-                <Button
-                    title="Add Card"
-                    onPress={() => handleAddCard()} />
-                <Button
-                    title="Start Quiz"
-                    onPress={() => handleStartQuiz()} />
-                <Button
-                    title="Delete Deck"
-                    onPress={() => handleDelCard()} />
+                <View style={styles.css.button}>
+                    <Button
+                        title="Add Card"
+                        onPress={() => handleAddCard()} /></View>
+                <View style={styles.css.button}>
+                    <Button
+                        title="Start Quiz"
+                        onPress={() => handleStartQuiz()} /></View>
+                <View style={styles.css.button}>
+                    <Button
+                        title="Delete Deck"
+                        onPress={() => handleDelCard()} /></View>
             </View>
         </KeyboardAvoidingView> :
         <Text>Unfounded deck {id}</Text>

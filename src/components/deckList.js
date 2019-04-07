@@ -24,12 +24,15 @@ const DeckList = ({ decks, navigation }) => {
 
     const keys = Object.keys(decks)
 
-    return <ScrollView style={styles.css.container}>
-            {keys.length? keys.map(p => formatDeck(decks[p]))
-            :<View style={[{flex:1},styles.css.row]}> 
-                <Text style={styles.css.title}>You have no decks yet!</Text>
-            </View>}
+    return keys.length? 
+        <ScrollView style={styles.css.container}>
+             {keys.map(p => formatDeck(decks[p]))}
         </ScrollView>
+        :<View style={[{flex:1},styles.css.container]}>
+            <View style={[{flex:1},styles.css.row]}> 
+                <Text style={styles.css.noDataText}>You have no decks yet!</Text>
+            </View>
+        </View>
 }
 
 function mapStateToProps({ decks }) {

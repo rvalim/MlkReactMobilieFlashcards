@@ -23,7 +23,7 @@ class Quiz extends Component {
 
     reset() {
         this.setState(
-            initialState, 
+            initialState,
             () => this.pop())
     }
 
@@ -42,7 +42,7 @@ class Quiz extends Component {
         }, () => this.pop())
     }
 
-    getPaging(){
+    getPaging() {
         return `${this.state.answeredId.length + 1} / ${this.props.cards.length}`
     }
 
@@ -52,16 +52,19 @@ class Quiz extends Component {
             <View>
                 <Text>{this.getPaging()}</Text>
                 <Text style={styles.css.title}>{card.question}</Text>
-                <Button
-                    style={styles.btn}
-                    title="Answer"
-                    onPress={() => Alert.alert('Answer', card.answer)} />
-                <Button
-                    title="Correct"
-                    onPress={() => this.handleAnswer(card.id, true)} />
-                <Button
-                    title="Incorrect"
-                    onPress={() => this.handleAnswer(card.id, false)} />
+                <View style={styles.css.button}>
+                    <Button
+                        style={styles.btn}
+                        title="Answer"
+                        onPress={() => Alert.alert('Answer', card.answer)} /></View>
+                <View style={styles.css.button}>
+                    <Button
+                        title="Correct"
+                        onPress={() => this.handleAnswer(card.id, true)} /></View>
+                <View style={styles.css.button}>
+                    <Button
+                        title="Incorrect"
+                        onPress={() => this.handleAnswer(card.id, false)} /></View>
             </View>
         )
     }
@@ -70,7 +73,7 @@ class Quiz extends Component {
         const { answers, quizFinish } = this.state
         if (!quizFinish) return
 
-        const {navigation} = this.props
+        const { navigation } = this.props
         const counter = {}
         Object.keys(answers).forEach(p => counter[answers[p]] = (counter[answers[p]] || 0) + 1)
 
@@ -78,23 +81,26 @@ class Quiz extends Component {
             <View>
                 <Text>Questions marked as incorret: {counter['false'] || 0}</Text>
                 <Text>Questions marked as correct: {counter['true'] || 0}</Text>
-                <Button
-                    title="Restart Quiz"
-                    onPress={() => this.reset()} />
-                <Button
-                    title="Back to Deck"
-                    onPress={() => navigation.pop()} />
-                
+                <View style={styles.css.button}>
+                    <Button
+                        title="Restart Quiz"
+                        onPress={() => this.reset()} /></View>
+
+                <View style={styles.css.button}>
+                    <Button
+                        title="Back to Deck"
+                        onPress={() => navigation.pop()} /></View>
+
             </View>
         )
     }
 
-    hasCards(){
+    hasCards() {
         return this.props.cards.length > 0
     }
 
     pop() {
-        if (!this.hasCards()) return 
+        if (!this.hasCards()) return
 
         const { cards } = this.props
         const { answeredId } = this.state
@@ -108,12 +114,12 @@ class Quiz extends Component {
     render() {
         return (
             <View style={styles.css.container}>
-                <View style={[{flex:1},styles.css.row]}> 
-                {this.hasCards() ?
-                    this.formatCard(this.state.popedCard): 
-                    <Text style={styles.css.noDataText}>You can't answer quizes without cards</Text>
-                }
-                {this.showScore()}
+                <View style={[{ flex: 1 }, styles.css.row]}>
+                    {this.hasCards() ?
+                        this.formatCard(this.state.popedCard) :
+                        <Text style={styles.css.noDataText}>You can't answer quizes without cards</Text>
+                    }
+                    {this.showScore()}
                 </View>
             </View>
         )

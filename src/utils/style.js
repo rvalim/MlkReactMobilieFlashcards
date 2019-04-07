@@ -31,13 +31,18 @@ export const css = StyleSheet.create({
             height: 3
         },
     },
+    input: {
+        paddingLeft:10, 
+        marginTop: 15,
+        height: 45,
+        borderRadius: 5,
+        borderColor: gray,
+        borderWidth: 1
+     },  
     button: {
+        marginTop: 15,
         backgroundColor: pink,
         borderRadius: 16,
-        padding: 20,
-        marginLeft: 10,
-        marginRight: 10,
-        marginBottom: 10,
     },
     title: {
         fontSize: 30,
@@ -48,6 +53,7 @@ export const css = StyleSheet.create({
         fontWeight: 'bold',
     },
     noDataText: {
+        textAlign: 'center',
         fontSize: 20,
         paddingTop: 20,
         paddingBottom: 20

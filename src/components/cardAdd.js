@@ -32,19 +32,21 @@ class CardAdd extends Component {
                 style={styles.css.container}
                 behavior="padding" enabled>
                 <View
-                    style={[{flex:1}, styles.css.row]}>
+                    style={[{ flex: 1 }, styles.css.row]}>
                     <TextInput
+                        style={styles.css.input}
                         value={this.state.question}
                         onChangeText={(question) => this.setState({ question })}
                         placeholder="Portugal's Continent?"></TextInput>
                     <TextInput
+                        style={styles.css.input}
                         value={this.state.answer}
                         onChangeText={(answer) => this.setState({ answer })}
                         placeholder="Europe"></TextInput>
-                    <Button
-                        title="Add Card"
-                        styles={styles.css.button}
-                        onPress={this.handleSubmit.bind(this)} />
+                    <View style={styles.css.button}>
+                        <Button
+                            title="Add Card"
+                            onPress={this.handleSubmit.bind(this)} /></View>
                 </View>
             </KeyboardAvoidingView>
         )
