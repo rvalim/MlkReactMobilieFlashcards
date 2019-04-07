@@ -1,4 +1,4 @@
-import * as db from './_data'
+import * as db from './_DATA'
 import { generateUID } from './helper'
 
 export function getInitialData() {

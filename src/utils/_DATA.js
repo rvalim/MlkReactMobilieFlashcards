@@ -1,6 +1,7 @@
 import { AsyncStorage } from 'react-native'
 import { generateUID } from './helper'
 
+//save entry
 export async function submitEntry(entry) {
   let key = generateUID()
   return updateEntry(key, entry)
