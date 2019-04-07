@@ -5,6 +5,8 @@ export function generateUID () {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
+const NOTIFICATION_KEY = 'Udct:Notify'
+
 export function clearLocalNotification () {
     return AsyncStorage.removeItem(NOTIFICATION_KEY)
       .then(Notifications.cancelAllScheduledNotificationsAsync)

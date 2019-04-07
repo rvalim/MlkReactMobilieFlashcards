@@ -40,7 +40,7 @@ export function loadDecks(decks) {
 }
 
 export function addDeck(key, deck) {
-    return (dispatch, getState) => {
+    return (dispatch) => {
         return saveDeck(key, deck)
             .then(res => {
                 dispatch(_addDeck(res))
@@ -49,7 +49,7 @@ export function addDeck(key, deck) {
 }
 
 export function delDeck(id) {
-    return (dispatch, getState) => {
+    return (dispatch) => {
         return deleteDeck(id)
             .then(res => {
                 if (res) dispatch(_delDeck(id))
@@ -58,7 +58,7 @@ export function delDeck(id) {
 }
 
 export function addCard(deckId, question, answer) {
-    return (dispatch, getState) => {
+    return (dispatch) => {
         return addCardToDeck(deckId, question, answer)
             .then(res => {
                 dispatch(_addCard({deckId, ...res}))

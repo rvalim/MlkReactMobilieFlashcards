@@ -34,6 +34,7 @@ export async function getAll() {
         await AsyncStorage.getAllKeys(async (err, keys) => {
           await AsyncStorage.multiGet(keys, (err, stores) => {
             stores.map(([key, value]) => {
+              if (key.substr(0, 5) === 'Udct:') return
               decks = {
                 ...decks,
                 [key]: JSON.parse(value)
